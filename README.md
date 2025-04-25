@@ -1,16 +1,13 @@
-# flutter_alura
+# 📚 Flutter e Dart - Alura
 
-Nosso primeiro projeto em Flutter
+Este repositório foi criado para acompanhar meus estudos de **Dart** e **Flutter**, seguindo os cursos da **Alura**.
 
-## Getting Started
+## 🚀 Objetivo
 
-This project is a starting point for a Flutter application.
+Aprender os conceitos fundamentais da linguagem **Dart** e do framework **Flutter**, desenvolvendo projetos práticos para fixar o conteúdo.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠️ Tecnologias
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Dart** — Linguagem de programação moderna, focada em produtividade.
+- **Flutter** — Framework para desenvolvimento de aplicações mobile, web e desktop.
