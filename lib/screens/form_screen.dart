@@ -79,11 +79,10 @@ class _FormScreenState extends State<FormScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                      validator: (value){
-                        if(value!.isEmpty)
-                          {
-                            return 'Insira um URL de Imagem!';
-                          }
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Insira um URL de Imagem!';
+                        }
                         return null;
                       },
                       onChanged: (text) {
@@ -125,10 +124,15 @@ class _FormScreenState extends State<FormScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      if(_formKey.currentState!.validate()) {
+                      if (_formKey.currentState!.validate()) {
                         print(nameController.text);
                         print(int.parse(difficultyController.text));
                         print(imageController.text);
+                        //Mostrando a mensagem
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Printando nova Tarefa')),
+                        );
+                        Navigator.pop(context);
                       }
                     },
                     child: Text('Adicionar!'),
