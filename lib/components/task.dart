@@ -54,8 +54,17 @@ class _TaskState extends State<Task> {
                       width: 72,
                       height: 100,
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(4),
-                          child: Image.asset(widget.foto, fit: BoxFit.cover)),
+                        borderRadius: BorderRadius.circular(4),
+                        child: Image(
+                          image: widget.foto.contains('http')
+                              ? NetworkImage(widget.foto)
+                              : AssetImage(widget.foto) as ImageProvider,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Image.asset('assets/images/nophoto.png', fit: BoxFit.cover);
+                          },
+                        ),
+                      ),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,

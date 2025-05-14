@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_alura/components/task.dart';
+import 'package:flutter_alura/data/task_inherited.dart';
 import 'form_screen.dart';
 
 class InitialScreen extends StatefulWidget {
@@ -15,28 +16,14 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       appBar: AppBar(leading: Container(), title: Text('Tarefas')),
       body: ListView(
-        children: [
-          Task(
-            nome: "Aprender Flutter",
-            foto: "assets/images/coruja.png",
-            dificuldade: 3,
-          ),
-          Task(
-            nome: "Andar de Bike",
-            foto: 'assets/images/bicicleta.jpeg',
-            dificuldade: 2,
-          ),
-          Task(nome: "Meditar", foto: 'assets/images/ler.jpeg', dificuldade: 5),
-          Task(nome: "Ler", foto: 'assets/images/meditar.jpg', dificuldade: 4),
-          Task(nome: "Jogar", foto: 'assets/images/jogar.jpg', dificuldade: 1),
-          SizedBox(height: 80),
-        ],
+        //Aqui é onde você encontra esse metodo, que pede um contexto e retorna esse objeto
+        children: TaskInherited.of(context).taskList,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => FormScreen()),
+            MaterialPageRoute(builder: (contextNew) => FormScreen(taskContext: context,)),
           );
         },
         child: Icon(

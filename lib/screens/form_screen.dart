@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_alura/data/task_inherited.dart';
 
 class FormScreen extends StatefulWidget {
-  const FormScreen({super.key});
+  const FormScreen({super.key, required this.taskContext});
+
+  final BuildContext taskContext;
 
   @override
   State<FormScreen> createState() => _FormScreenState();
@@ -109,28 +112,33 @@ class _FormScreenState extends State<FormScreen> {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
+                      child: imageController.text.isEmpty
+                          ? Image.asset('assets/images/nophoto.png')
+                          : Image.network(
                         imageController.text,
                         errorBuilder: (
-                          BuildContext context,
-                          Object exception,
-                          StackTrace? stackTrace,
-                        ) {
+                            BuildContext context,
+                            Object exception,
+                            StackTrace? stackTrace,
+                            ) {
                           return Image.asset('assets/images/nophoto.png');
                         },
                         fit: BoxFit.cover,
                       ),
                     ),
+
                   ),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        print(nameController.text);
-                        print(int.parse(difficultyController.text));
-                        print(imageController.text);
+                        // print(nameController.text);
+                        // print(int.parse(difficultyController.text));
+                        // print(imageController.text);
+                        //Função de criar uma nova tarefa
+                        TaskInherited.of(widget.taskContext).newTask(nameController.text, imageController.text, int.parse(difficultyController.text));
                         //Mostrando a mensagem
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Printando nova Tarefa')),
+                          const SnackBar(content: Text('Criando uma nova Tarefa')),
                         );
                         Navigator.pop(context);
                       }

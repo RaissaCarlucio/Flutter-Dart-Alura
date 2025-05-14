@@ -17,6 +17,7 @@
 // - Memory: Arquvo está dentro da memória do dispositivo
 
 import 'package:flutter/material.dart';
+import 'package:flutter_alura/data/task_inherited.dart';
 import 'package:flutter_alura/screens/form_screen.dart';
 import 'screens/initial_screen.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: InitialScreen(),
+      home: TaskInherited(child: InitialScreen()),
     );
   }
 }
